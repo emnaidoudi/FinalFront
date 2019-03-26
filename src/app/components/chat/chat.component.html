@@ -1,0 +1,57 @@
+<!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
+<style type="text/css"> 
+  #madiv{height:100pt;overflow:auto} 
+  </style> 
+<div id="container">
+<div    id="madiv"  class="card" 
+  style="height: 500px;border-radius: 10px 10px 3px 3px;width:40%;max-width:400px;box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+    <div  class="chat-container" #scrollMe id="body"> 
+      <div *ngFor="let message of messages" > 
+
+        <div  *ngIf="message.author=='user'" class="chat-message">
+          <div class="chat-message-content human">
+            <span class="textright">{{message.content}}</span>
+          </div>
+        </div>
+                                                          <!-- <div  *ngIf="message.content=='user'" class="chat-message"> -->
+          <div class="chat-message">
+          <div class="chat-message-content">
+            <span class="textleft"> {{message.content}} 
+              </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="type_msg" class="panel-footer" id="footer">
+        <div class="input_msg_write">
+          <div  class="card-footer">
+            <form [formGroup]="chatForm" *ngIf="chatForm" (submit)="send()" formControlName="input"  >
+              <input type="text" [(ngModel)]="chatCurrent" class="write_msg" formControlName="input" placeholder="Type your message here" autocomplete=off value="">
+              <div><button class="msg_send_btn" click="send()" type="button"></button></div>
+            </form>
+          
+          </div> 
+          
+        </div>
+        
+    </div>
+
+    
+      
+  </div>
+</div>
+    <!-- <mat-card fxFlex="50" class="json-response">
+      <h3>POST /api/v1</h3>
+      <pre>{{prettyChatCurrent}}</pre>
+    </mat-card> -->
+ 
+<!-- <div class="card" style="width:80%;max-width:400px;box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+   
+    <div class="cardcontainer">
+      <p>Box Shadow</p>
+    </div>
+  </div> -->
+  
+

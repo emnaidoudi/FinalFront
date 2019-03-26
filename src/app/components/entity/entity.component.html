@@ -1,0 +1,48 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxFlex="90">
+      <input [(ngModel)]="entity.name" placeholder="Entity value">
+    </div>
+    <div>
+      <button (click)="saveEntity()" color="accent">
+        Save
+      </button>
+    </div>
+  </div>
+
+  
+
+  <div fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top:10px;">
+    
+      
+    
+    <button  (click)="newValue(newEntityValue.value)" color="primary">
+      <i aria-label="New value">add</i>
+    </button>
+  </div>
+
+  <div class="values">
+    <div *ngFor="let value of entity.entity_values;let value_index=index" fxLayout="row" fxLayoutAlign="space-between center">
+      <span fxFlex="10">
+        <h3>{{value.value}}</h3>
+      </span>
+      <div>
+        <div >
+          <!-- <div *ngFor="let synonym of value.synonyms;let synonym_index=index" [selectable]="true"  (remove)="remove_synonym(value_index,synonym_index)">
+            {{synonym}}
+            <i *ngIf="true">cancel</i>
+          </div> -->
+          <!-- <input placeholder="Synonyms" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="add(value_index,$event)" /> -->
+        </div>
+      </div>
+      <div fxFlex="5">
+          <button  (click)="deleteEntityValue(value_index)" color="warn">
+              <i aria-label="Delete this value">delete</i>
+            </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+

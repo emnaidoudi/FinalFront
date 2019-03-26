@@ -1,0 +1,20 @@
+<div class="well well-lg" style="max-width: 90rem;">
+    
+    
+
+    <h3>Import/Export Intents</h3>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+
+        <div  fxLayout="row" fxLayoutAlign=" center">
+            <div fxFlex style="border: 0.1px solid;">
+               
+                <input type="file"
+                      id="file"
+                      (change)="handleFileInput($event.target.files)">
+            </div>
+            <div fxLayoutAlign="end" > 
+                 <button  class="btn btn-primary" (click)="uploadFileToActivity()" [disabled]="!fileToUpload">Import Intents</button></div>  
+          </div>
+          <button (click)="export()" class="btn btn-primary" color="primary">Export Intents</button>
+    </div>
+</div>

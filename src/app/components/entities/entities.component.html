@@ -1,0 +1,27 @@
+<div>
+  
+    <div  class="field">
+      <div>
+        <input class="form-control" #newEntityName placeholder="Entity name" style="  width : 70% ">
+      </div>
+      <div>
+        <button class="btn btn-primary" color="primary" (click)="newEntity(newEntityName.value)">Add</button>
+      </div>
+    </div>
+
+  <div class="entities">
+    <div *ngFor="let entity of entities;let i=index" fxLayout="row" fxLayoutAlign=" center" class="entity-container">
+      <div fxFlex="60">
+        {{entity.name}}
+      </div>
+      <div fxFlex="40">
+        <button  (click)="edit(entity)" color="accent">
+          <i aria-label="Edit this entity">edit</i>
+        </button>
+        <button  (click)="deleteEntity(entity._id.$oid,i)" color="warn">
+            <i aria-label="Delete this entity">delete</i>
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

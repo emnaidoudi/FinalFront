@@ -1,0 +1,75 @@
+<meta charset="utf-8" />
+<script src="https://code.angularjs.org/1.2.28/angular.js"></script>
+<script src="script.js"></script>
+  <h2>{{message}}</h2>
+
+ 
+      
+
+  <div style="max-width: 90rem;" >
+      <div class="modal-header"  >
+            <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span class="close-button">&times;</span>
+            </button> -->
+    <h2  class="modal-title" id="modal-title"><span  class="text-primary">Create new Intent</span> </h2>
+    <br>
+    </div>
+    <div class="modal-body" style=" margin-left: 25px;">
+      <form [formGroup]="intentForm" *ngIf="intentForm" (submit)="save()" class="row" style=" width: 100%;">
+     <div class="form-group" >
+        <label for="formGroupExampleInput"></label>
+        <input  type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="user.IntentName" id="IntentName" name="IntentName" formControlName="IntentName" placeholder="Intent name">
+      </div>
+    <!-----------------what user can say------------------->
+    <div class="form-group">
+      <input  class="form-control" id="formGroupExampleInput"  [(ngModel)]="user.userTalk" #name   id="userTalk" name="userTalk"type="text" formControlName="intentId" placeholder="what user can say"/>
+      <div *ngFor = "let contact of contacts; " >
+      </div>
+    <br>
+    <button type="button"  class="btn btn-primary" (click)="addContact(name.value)" color="primary">add suggestions</button>
+  </div>
+    <br>
+<!--output of intent examples-->
+    <div>
+          <div *ngFor="let contact of contacts"  >
+    <div fxLayout="row">
+        <div  contenteditable="true" role="textarea"  appAutofocus  >{{contact.name}}</div>
+          <i class="glyphicon glyphicon-trash" aria-label="Delete this example" (click)="deleteExample(name)"></i>
+      </div>
+      </div>
+    </div>
+<!---------------no joy without material design------------->
+    <!---------speech Response-------->
+    <br>
+    <div class="form-group" > 
+      <input class="form-control" type="text" #talk id="formGroupExampleInput" [(ngModel)]="user.botTalk" id="botTalk" name="botTalk" formControlName="speechResponse" placeholder="Speech Response" />
+      <div *ngFor = "let speech of speechs; " ></div>
+</div>
+    <br>
+      <button type="button" class="btn btn-primary" (click)="addResponse(talk.value)" color="primary">add suggestions</button>
+  <br><br>
+  <!--output of speech examples-->
+      <div >
+            <div *ngFor="let speech of speechs"  >
+  
+          <div fxFlex="90" contenteditable="true" role="textarea"  appAutofocus  > <li>{{speech.talk}} </li> 
+           <button (click)="deletespeech(talk)"> <i class="glyphicon glyphicon-trash" ></i> </button></div>
+        
+        </div>
+       
+      </div>
+      </form>
+      </div>
+    <!--p>
+      Extracted parameters and api call response can be accessed from speech respone using "parameters" and "result" objects respectively.
+      <a href="http://jinja.pocoo.org/docs/2.10/templates/" target="_blank">Jinja</a> Templating enabled.
+    </p-->
+    <div class="modal-footer">
+      <button  color="primary"   class="btn btn-success" (click)="createUser()" [disabled]="intentForm.valid">Save</button>
+    </div>
+    
+      </div>
+
+
+
+      

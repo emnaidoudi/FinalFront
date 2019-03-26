@@ -1,0 +1,87 @@
+<div class="header" fxLayout="row" fxLayoutAlign=" center">
+  <h2 >List of Intents   
+      
+        <i class="glyphicon glyphicon-plus-sign" (click)="add()" type="button" class="btn btn-primary">+</i>
+  </h2>
+  <button type="button" class="btn btn-success" (click)="trainModels()">Build Agent</button>
+  <!-- <button mat-raised-button color="primary" (click)="trainModels()">Build Agent</button> -->
+</div>
+
+
+<div *ngFor="let tlk of TBtalk"   >
+<div  class="well well-lg" style="max-width: 90rem;">
+    <div class="card">
+      <div  >
+         
+        <h4 >
+              {{tlk.IntentName}}
+           
+          <div style="float:right">
+
+        <span data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample"> 
+
+          <a  class="btn btn-info ">
+            <i  class="glyphicon glyphicon-pencil"></i> Train 
+          </a>
+        </span>
+
+            <span ng-click="deleteUser(tlk)" (click)="deleteUser(tlk)" >
+              
+            <button type="button" class="btn btn-default btn-sm">
+                <i class="glyphicon glyphicon-trash"></i>
+                delete 
+              </button>
+            </span>
+            </div>
+          </h4>
+        
+      </div>
+  <!-- hghfgfggjkgjk -->
+  <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+      <div  id="exampleModalCenter" tabindex="-1"  >
+        <div class="modal-dialog " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"  >{{tlk.IntentName}}  </h5>
+              
+              <input  placeholder="" value={{tlk.IntentName}}>
+                 <br>
+                    <input placeholder="" value={{tlk.userTalk}}>
+                  <br>
+                    <input placeholder="" value={{tlk.botTalk}}>
+              <div  >
+
+ 
+  
+            </div>
+          </div>
+        </div>      
+            <div class="modal-footer">
+             
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+
+
+
+
+
+    <!-- <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Link with href
+        </a>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Button with data-target
+        </button>
+      </p> -->
+     
